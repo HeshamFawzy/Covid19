@@ -57,19 +57,19 @@
                             <div class="col-4">
                                 @if($cofirmed ?? '')
                                 <label for="confirmed" class="h4">Confirmed :</label>
-                                <h1 style="text-align: center;" class="alert alert-warning">{{$cofirmed}}</h1>
+                                <h6 style="text-align: center;" class="alert alert-warning">{{$cofirmed}}</h6>
                             </div>
                             @endif
                             <div class="col-4">
                                 @if($recovered ?? '')
                                 <label for="recovered" class="h4">Recovered :</label>
-                                <h1 style="text-align: center;" class="alert alert-success">{{$recovered}}</h1>
+                                <h6 style="text-align: center;" class="alert alert-success">{{$recovered}}</h6>
                                 @endif
                             </div>
                             <div class="col-4">
                                 @if($deaths ?? '')
                                 <label for="deaths" class="h4">Deaths :</label>
-                                <h1 style="text-align: center;" class="alert alert-danger">{{$deaths}}</h1>
+                                <h6 style="text-align: center;" class="alert alert-danger">{{$deaths}}</h6>
                                 @endif
                             </div>
                         </div>
