@@ -24,22 +24,45 @@
             <a href="{{ route('register') }}">Register</a> @endif @endauth
         </div>
         @endif
-        <div class="card shadow mb-3">
-            <div class="card-header py-3">
-                <p class="text-primary m-0 font-weight-bold">Select Settings</p>
-            </div>
+        <div class="container">
+            <div class="card shadow mb-3 p-3">
+                <div class="card-header py-3">
+                    <p class="text-primary m-0 font-weight-bold">Select Settings</p>
+                </div>
+                <form method="post" action="{{url('/show')}}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label for="chart" class="h4">Select Chart :</label>
+                        <select id="chart" class="form-control" name="chart" required="">
+                            <option value="" disabled="disabled" selected="true">Select Chart</option>
+                            <option value="bar">Bar</option>
+                            <option value="pie">Pie</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country" class="h4">Select Country :</label>
+                        <select id="country" class="form-control" name="country" required="">
+                            <option value="" disabled="disabled" selected="true">Select Country</option>
+                            @if($options ?? '')
+                            @foreach($options as $option)
+                            <option value="{{$option}}">{{$option}}
+                            </option>
+                            @endforeach
+                            @endif
+                        </select>
+                    </div>
 
 
-
-
-            <div class="card-body">
-                <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" style="float: right;">Fetch Data</button></div>
-            </div>
-        </div>
-
-        <div class="content">
-            <div style="width: 100%">
-                {!! $covidChart->container() !!} @if($covidChart) {!! $covidChart->script() !!} @endif
+                    <div class="card-body">
+                        <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" style="float: right;">Fetch Data</button></div>
+                    </div>
+                </form>
+                <div class="content">
+                    <div style="width: 100%">
+                        @if($covidChart ?? '') {!! $covidChart->container() !!} @if($covidChart) {!! $covidChart->script() !!} @endif @endif
+                    </div>
+                </div>
             </div>
         </div>
 </body>
