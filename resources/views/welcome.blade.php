@@ -52,7 +52,16 @@
                             @endif
                         </select>
                     </div>
+                    <div>
+                        <label for="confirmed" class="h4" style="background-color: rgba(255, 205, 86, 2.0);">Confirmed :</label>
+                        <h1 style="text-align: center;">{{$cofirmed}}</h1>
 
+                        <label for="recovered" class="h4" style="background-color: rgba(22,160,133, 2.0);">Recovered :</label>
+                        <h1 style="text-align: center;">{{$recovered}}</h1>
+
+                        <label for="deaths" class="h4" style="background-color: rgba(255, 99, 132, 2.0);">Deaths :</label>
+                        <h1 style="text-align: center;">{{$deaths}}</h1>
+                    </div>
 
                     <div class="card-body">
                         <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" style="float: right;">Fetch Data</button></div>

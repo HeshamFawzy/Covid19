@@ -25,7 +25,12 @@ class CovidChartController extends Controller
         $data = json_decode($body, true);
 
         array_keys($data);
-        return view('welcome')->with('options' , array_keys($data));
+
+        $confirmed = $last['confirmed'];
+        $recovered = $last['recovered'];
+        $deaths = $last['deaths'];
+
+        return view('welcome')->with('options' , array_keys($data))->with('cofirmed' , $confirmed)->with('recovered' , $recovered)->with('deaths', $deaths);;
     }
 
     public function show(Request $request)
@@ -56,8 +61,11 @@ class CovidChartController extends Controller
         $covidChart->dataset('Covid19', $x, [$last['confirmed'],$last['recovered'],$last['deaths']])
             ->color($borderColors)
             ->backgroundcolor($fillColors);
+        $confirmed = $last['confirmed'];
+        $recovered = $last['recovered'];
+        $deaths = $last['deaths'];
 
-        return view('welcome', [ 'covidChart' => $covidChart ])->with('options' , array_keys($data));;
+        return view('welcome', [ 'covidChart' => $covidChart ])->with('options' , array_keys($data))->with('cofirmed' , $confirmed)->with('recovered' , $recovered)->with('deaths', $deaths);
     }
 
 }
