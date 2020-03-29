@@ -26,11 +26,7 @@ class CovidChartController extends Controller
 
         array_keys($data);
 
-        $confirmed = $last['confirmed'];
-        $recovered = $last['recovered'];
-        $deaths = $last['deaths'];
-
-        return view('welcome')->with('options' , array_keys($data))->with('cofirmed' , $confirmed)->with('recovered' , $recovered)->with('deaths', $deaths);;
+        return view('welcome')->with('options' , array_keys($data));
     }
 
     public function show(Request $request)

@@ -32,7 +32,7 @@
                 <form method="post" action="{{url('/show')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="chart" class="h4">Select Chart :</label>
+                        <label for="chart" class="h4">Select Chart Type:</label>
                         <select id="chart" class="form-control" name="chart" required="">
                             <option value="" disabled="disabled" selected="true">Select Chart</option>
                             <option value="bar">Bar</option>
@@ -53,14 +53,26 @@
                         </select>
                     </div>
                     <div>
-                        <label for="confirmed" class="h4">Confirmed :</label>
-                        <h1 style="text-align: center;" class="alert alert-warning">{{$cofirmed}}</h1>
-
-                        <label for="recovered" class="h4">Recovered :</label>
-                        <h1 style="text-align: center;" class="alert alert-success">{{$recovered}}</h1>
-
-                        <label for="deaths" class="h4">Deaths :</label>
-                        <h1 style="text-align: center;" class="alert alert-danger">{{$deaths}}</h1>
+                        <div class="row">
+                            <div class="col-4">
+                                @if($cofirmed ?? '')
+                                <label for="confirmed" class="h4">Confirmed :</label>
+                                <h1 style="text-align: center;" class="alert alert-warning">{{$cofirmed}}</h1>
+                            </div>
+                            @endif
+                            <div class="col-4">
+                                @if($recovered ?? '')
+                                <label for="recovered" class="h4">Recovered :</label>
+                                <h1 style="text-align: center;" class="alert alert-success">{{$recovered}}</h1>
+                                @endif
+                            </div>
+                            <div class="col-4">
+                                @if($deaths ?? '')
+                                <label for="deaths" class="h4">Deaths :</label>
+                                <h1 style="text-align: center;" class="alert alert-danger">{{$deaths}}</h1>
+                                @endif
+                            </div>
+                        </div>
                     </div>
 
                     <div class="card-body">
